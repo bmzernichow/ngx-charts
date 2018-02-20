@@ -64,18 +64,22 @@ export var TooltipContentComponent = (function () {
         this.position();
     };
     TooltipContentComponent.decorators = [
-        { type: Component, args: [{
-                    selector: 'ngx-tooltip-content',
-                    template: "\n    <div>\n      <span\n        #caretElm\n        [hidden]=\"!showCaret\"\n        class=\"tooltip-caret position-{{this.placement}}\">\n      </span>\n      <div class=\"tooltip-content\">\n        <span *ngIf=\"!title\">\n          <template\n            [ngTemplateOutlet]=\"template\"\n            [ngOutletContext]=\"{ model: context }\">\n          </template>\n        </span>\n        <span\n          *ngIf=\"title\"\n          [innerHTML]=\"title\">\n        </span>\n      </div>\n    </div>\n  ",
-                    encapsulation: ViewEncapsulation.None,
-                    styleUrls: ['./tooltip.component.css']
-                },] },
+        {
+            type: Component, args: [{
+                selector: 'ngx-tooltip-content',
+                template: "\n    <div>\n      <span\n        #caretElm\n        [hidden]=\"!showCaret\"\n        class=\"tooltip-caret position-{{this.placement}}\">\n      </span>\n      <div class=\"tooltip-content\">\n        <span *ngIf=\"!title\">\n          <template\n            [ngTemplateOutlet]=\"template\"\n            [ngTemplateOutletContext]=\"{ model: context }\">\n          </template>\n        </span>\n        <span\n          *ngIf=\"title\"\n          [innerHTML]=\"title\">\n        </span>\n      </div>\n    </div>\n  ",
+                encapsulation: ViewEncapsulation.None,
+                styleUrls: ['./tooltip.component.css']
+            },]
+        },
     ];
     /** @nocollapse */
-    TooltipContentComponent.ctorParameters = function () { return [
-        { type: ElementRef, },
-        { type: Renderer, },
-    ]; };
+    TooltipContentComponent.ctorParameters = function () {
+        return [
+            { type: ElementRef, },
+            { type: Renderer, },
+        ];
+    };
     TooltipContentComponent.propDecorators = {
         'host': [{ type: Input },],
         'showCaret': [{ type: Input },],
@@ -90,9 +94,9 @@ export var TooltipContentComponent = (function () {
         'onWindowResize': [{ type: HostListener, args: ['window:resize',] },],
     };
     __decorate([
-        throttleable(100), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', []), 
+        throttleable(100),
+        __metadata('design:type', Function),
+        __metadata('design:paramtypes', []),
         __metadata('design:returntype', void 0)
     ], TooltipContentComponent.prototype, "onWindowResize", null);
     return TooltipContentComponent;
